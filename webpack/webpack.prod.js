@@ -8,6 +8,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.name': JSON.stringify('Todo-App-prod'),
     }),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
   ],
-} 
+};

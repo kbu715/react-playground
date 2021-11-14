@@ -14,4 +14,4 @@ module.exports = {
       'process.env.name': JSON.stringify('Todo-App-dev'),
     }),
   ],
-} 
+};
