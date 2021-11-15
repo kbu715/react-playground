@@ -5,6 +5,7 @@ import TodoTemplate from './components/Todo/TodoTemplate';
 import TodoInsert from './components/Todo/TodoInsert';
 import TodoList from './components/Todo/TodoList';
 import { useCallback, useRef, useState } from 'react';
+import { produce } from 'immer';
 
 const createBulkTodos = () => {
   const array = [];
@@ -49,13 +50,27 @@ export const App = () => {
       text,
       checked: false,
     };
-
-    setTodos((todos) => [todo, ...todos]);
+    // (todos) => [todo, ...todos]
+    setTodos(
+      produce((draft) => {
+        draft.unshift(todo);
+      })
+    );
     nextId.current += 1;
   }, []);
 
   const onRemove = useCallback((id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    // setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    // immer 사용해보기
+    // immer 사용했을때 가독성이 증가했는가? 글쎄...
+    setTodos(
+      produce((draft) => {
+        draft.splice(
+          draft.findIndex((todo) => todo.id === id),
+          1
+        );
+      })
+    );
   }, []);
 
   const onToggle = useCallback((id) => {
