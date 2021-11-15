@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: ${({ theme }) => theme.fontFamilies.main};
+    background-color: #e9ecef;
   }
   h1 {
     margin: 0;
