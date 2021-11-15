@@ -6,6 +6,10 @@ module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    // To import react-virtualized/List component from a lot of places.
+    alias: {
+      'react-virtualized/List': 'react-virtualized/dist/es/List',
+    },
   },
   module: {
     rules: [

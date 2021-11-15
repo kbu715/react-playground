@@ -1,3 +1,4 @@
+import { List } from 'react-virtualized';
 import styled from 'styled-components';
 
 export const StyledTemplate = styled.div`
@@ -54,60 +55,62 @@ export const StyledInsert = styled.form`
   }
 `;
 
-export const StyledList = styled.ul`
+export const StyledList = styled(List)`
   min-height: 320px;
   max-height: 520px;
   overflow-y: auto;
 `;
 
-export const StyledItem = styled.li`
-  padding: 1rem;
-  display: flex;
-  align-items: center;
+export const StyledItem = styled.div`
+  // element 사이에 border
+  & + & {
+    border-top: 1px solid #dee2e6;
+  }
 
   &:nth-child(even) {
     background: #f8f9fa;
   }
 
-  .checkbox {
-    cursor: pointer;
-    flex-grow: 1;
+  .TodoListItem {
+    padding: 1rem;
     display: flex;
     align-items: center;
 
-    svg {
-      // 아이콘
-      font-size: 1.5rem;
-    }
+    .checkbox {
+      cursor: pointer;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
 
-    .text {
-      margin-left: 0.5rem;
-    }
-
-    &.checked {
       svg {
-        color: #22b8cf;
+        // 아이콘
+        font-size: 1.5rem;
       }
+
       .text {
-        color: #adb5bd;
-        text-decoration: line-through;
+        margin-left: 0.5rem;
+      }
+
+      &.checked {
+        svg {
+          color: #22b8cf;
+        }
+        .text {
+          color: #adb5bd;
+          text-decoration: line-through;
+        }
       }
     }
-  }
 
-  .remove {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    color: #ff6b6b;
-    cursor: pointer;
-    &:hover {
-      color: #ff8787;
+    .remove {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #ff6b6b;
+      cursor: pointer;
+      &:hover {
+        color: #ff8787;
+      }
     }
-  }
-
-  // element 사이에 border
-  & + & {
-    border-top: 1px solid #dee2e6;
   }
 `;
