@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyledList } from './styles';
 import TodoListItem from './TodoListItem';
 
@@ -24,4 +25,4 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onRemove, onToggle }) => {
   );
 };
 
-export default TodoList;
+export default React.memo(TodoList);

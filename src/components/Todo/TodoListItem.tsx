@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
@@ -36,4 +37,4 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
     </StyledItem>
   );
 };
-export default TodoListItem;
+export default React.memo(TodoListItem);
