@@ -43,7 +43,7 @@ const RoutesComponent: React.FC = () => {
             <Link to="/profiles">Profiles</Link>
           </li>
           <li>
-            <Link to="/news">News</Link>
+            <Link to="/news/">News</Link>
           </li>
         </ul>
       </StyledNav>
@@ -57,7 +57,10 @@ const RoutesComponent: React.FC = () => {
         <Route path="/profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
-        <Route path="/news" element={<News />} />
+        <Route path="/news" element={<News />}>
+          <Route path=":category" element={<News />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

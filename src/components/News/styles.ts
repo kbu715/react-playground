@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { lineClamp } from '../../styles/utils';
 
 export const NewsItemBlock = styled.div`
@@ -70,26 +71,25 @@ export const CategoriesBlock = styled.nav`
   }
 `;
 
-export const Category = styled.div<{ isActive: boolean }>`
+export const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
   color: inherit;
   padding-bottom: 0.25rem;
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      font-weight: 600;
-      border-bottom: 2px solid #22b8cf;
-      color: #22b8cf;
-      &:hover {
-        #3bc8db;
-      }
-    `}
 
   &:hover {
     color: #3bc8db;
+  }
+
+  &.active {
+    font-weight: 600;
+    border-bottom: 2px solid #22b8cf;
+    color: #22b8cf;
+    &:hover {
+      color: #3bc8db;
+    }
   }
 
   & + & {

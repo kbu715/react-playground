@@ -1,16 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import Categories from './Categories';
 import NewsList from './NewsList';
 
 const News: React.FC = () => {
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback<(category: string) => void>(
-    (category) => setCategory(category),
-    []
-  );
+  const params = useParams();
+  const category = params.category || 'all';
   return (
     <>
-      <Categories category={category} onSelect={onSelect} />
+      <Categories />
       <NewsList category={category} />
     </>
   );
