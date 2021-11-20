@@ -1,29 +1,43 @@
 import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 import Home from './components/Router/Home';
 import About from './components/Router/About';
-import Profile from './components/Router/Profile';
 import NotFound from './components/Router/NotFound';
+import Profiles from './components/Router/Profiles';
+import Profile from './components/Router/Profile';
+
+const StyledNav = styled.nav`
+  ul {
+    display: flex;
+
+    & li {
+      margin-right: 10px;
+      padding: 10px 5px;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+  }
+`;
+
 const RoutesComponent: React.FC = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/profile/paul">paul의 프로필</Link>
-        </li>
-        <li>
-          <Link to="/profile/gildong">gildong의 프로필</Link>
-        </li>
-        <li>
-          <Link to="/profile/someone">someone의 프로필</Link>
-        </li>
-      </ul>
+    <>
+      <StyledNav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/profiles">Profiles</Link>
+          </li>
+        </ul>
+      </StyledNav>
 
       <hr />
 
@@ -31,10 +45,12 @@ const RoutesComponent: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/info" element={<About />} />
-        <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/profiles" element={<Profiles />}>
+          <Route path=":username" element={<Profile />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </nav>
+    </>
   );
 };
 

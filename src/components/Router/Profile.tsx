@@ -25,14 +25,14 @@ const Profile: React.FC = () => {
   const profile = profileData[params.username as string];
 
   if (!profile) {
-    return <div>존재하지 않는 사용자입니다.</div>;
+    return <h1>존재하지 않는 사용자입니다.</h1>;
   }
 
   return (
     <div>
-      <h3>
+      <h1>
         {params.username}({profile.name})
-      </h3>
+      </h1>
       <p>{profile.description}</p>
     </div>
   );
