@@ -3,6 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Router/Home';
 import About from './components/Router/About';
 import Profile from './components/Router/Profile';
+import NotFound from './components/Router/NotFound';
 const RoutesComponent: React.FC = () => {
   return (
     <nav>
@@ -31,6 +32,7 @@ const RoutesComponent: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/info" element={<About />} />
         <Route path="/profile/:username" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </nav>
   );
