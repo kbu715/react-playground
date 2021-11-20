@@ -7,6 +7,7 @@ import { theme } from './styles';
 // import { useCallback, useRef, useState } from 'react';
 // import { produce } from 'immer';
 import Routes from './Routes';
+import { BrowserRouter } from 'react-router-dom';
 
 // const createBulkTodos = () => {
 //   const array = [];
@@ -83,13 +84,15 @@ export const App = () => {
   // }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      {/* <TodoTemplate>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        {/* <TodoTemplate>
         <TodoInsert onInsert={onInsert} />
         <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
       </TodoTemplate> */}
-      <Routes />
-    </ThemeProvider>
+        <Routes />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
