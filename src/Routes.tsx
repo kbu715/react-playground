@@ -12,8 +12,13 @@ const StyledNav = styled.nav`
     display: flex;
 
     & li {
+      display: block;
       margin-right: 10px;
-      padding: 10px 5px;
+
+      a {
+        display: inline-block;
+        padding: 10px 5px;
+      }
 
       &:hover {
         background-color: #fff;

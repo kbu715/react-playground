@@ -1,26 +1,50 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Profile from './Profile';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Profiles: React.FC = () => {
-  const { username } = useParams();
-
   return (
     <div>
       <h3>사용자 리스트</h3>
       <ul>
         <li>
-          <Link to="/profiles/paul">paul의 프로필</Link>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? 'blue' : '',
+              };
+            }}
+            to="/profiles/paul"
+          >
+            paul의 프로필
+          </NavLink>
         </li>
         <li>
-          <Link to="/profiles/gildong">gildong의 프로필</Link>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? 'blue' : '',
+              };
+            }}
+            to="/profiles/gildong"
+          >
+            gildong의 프로필
+          </NavLink>
         </li>
         <li>
-          <Link to="/profiles/unknown">unknown의 프로필</Link>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? 'blue' : '',
+              };
+            }}
+            to="/profiles/unknown"
+          >
+            unknown의 프로필
+          </NavLink>
         </li>
       </ul>
       <hr />
-      {username && <Profile />}
+      <Outlet />
     </div>
   );
 };
