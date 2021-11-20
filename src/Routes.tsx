@@ -6,7 +6,7 @@ import About from './components/Router/About';
 import NotFound from './components/Router/NotFound';
 import Profiles from './components/Router/Profiles';
 import Profile from './components/Router/Profile';
-import NewsList from './components/News/NewsList';
+import News from './components/News';
 
 const StyledNav = styled.nav`
   ul {
@@ -57,7 +57,7 @@ const RoutesComponent: React.FC = () => {
         <Route path="/profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
-        <Route path="/news" element={<NewsList />} />
+        <Route path="/news" element={<News />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

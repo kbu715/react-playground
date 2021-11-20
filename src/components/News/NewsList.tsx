@@ -3,13 +3,6 @@ import NewsItem from './NewsItem';
 import { NewsListBlock } from './styles';
 import axios from 'axios';
 
-// const sampleArticle = {
-//   title: '제목',
-//   description: '내용',
-//   url: 'https://www.github.com/kbu715',
-//   urlToImage: 'https://via.placeholder.com/160',
-// };
-
 export interface ArticleType {
   title: string;
   description: string;
@@ -17,7 +10,11 @@ export interface ArticleType {
   urlToImage: string;
 }
 
-const NewsList: React.FC = () => {
+interface NewsListProps {
+  category: string;
+}
+
+const NewsList: React.FC<NewsListProps> = ({ category }) => {
   const [articles, setArticles] = useState<ArticleType[] | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -26,8 +23,9 @@ const NewsList: React.FC = () => {
       setLoading(true);
 
       try {
+        const query = category === 'all' ? '' : `&category=${category}`;
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${process.env.NEWS_API_KEY}`
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${process.env.NEWS_API_KEY}`
         );
         setArticles(response.data.articles);
       } catch (error) {
@@ -36,7 +34,7 @@ const NewsList: React.FC = () => {
       setLoading(false);
     };
     fetchNewsData();
-  }, []);
+  }, [category]);
 
   if (loading) {
     return <NewsListBlock>로딩중...</NewsListBlock>;

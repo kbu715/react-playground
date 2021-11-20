@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { lineClamp } from '../../styles/utils';
 
 export const NewsItemBlock = styled.div`
@@ -6,6 +6,10 @@ export const NewsItemBlock = styled.div`
 
   .thumbnail {
     margin-right: 1rem;
+
+    &:hover {
+      opacity: 0.5;
+    }
 
     img {
       display: block;
@@ -18,6 +22,10 @@ export const NewsItemBlock = styled.div`
   .contents {
     h2 {
       text-decoration: underline;
+
+      &:hover {
+        opacity: 0.4;
+      }
       a {
         color: #000;
       }
@@ -47,5 +55,44 @@ export const NewsListBlock = styled.div`
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+`;
+
+export const CategoriesBlock = styled.nav`
+  display: flex;
+  padding: 1rem 0;
+  width: 768px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+`;
+
+export const Category = styled.div<{ isActive: boolean }>`
+  font-size: 1.125rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 0.25rem;
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      font-weight: 600;
+      border-bottom: 2px solid #22b8cf;
+      color: #22b8cf;
+      &:hover {
+        #3bc8db;
+      }
+    `}
+
+  &:hover {
+    color: #3bc8db;
+  }
+
+  & + & {
+    margin-left: 1rem;
   }
 `;
