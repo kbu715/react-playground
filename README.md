@@ -17,21 +17,26 @@
 ### 📦 컴포넌트 구성
 
 - Basics
+
   - [x] Button
   - [ ] Input
   - [ ] Icon
-  - ...
+
 - Compounds
+
   - [ ] ButtonGroup
   - [ ] Card
   - [ ] Form
   - [ ] List
+
 - Templates
+
+  - [x] Grid System
   - [ ] Footer
   - [ ] Main
   - [ ] Modal
 
-<br>
+  <br>
 
 ### 커스텀 훅 구성
 

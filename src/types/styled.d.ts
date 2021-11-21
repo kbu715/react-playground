@@ -49,5 +49,12 @@ declare module 'styled-components' {
       red: string;
       green: string;
     };
+
+    breakpoints: {
+      tablet: string;
+      desktop: string;
+    };
+
+    gutter: string;
   }
 }

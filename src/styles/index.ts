@@ -47,10 +47,19 @@ const colors = {
   green: '#22c58b',
 };
 
+const breakpoints = {
+  tablet: '768px',
+  desktop: '1200px',
+};
+
+export const gutter = '10px';
+
 export const theme: DefaultTheme = {
   fontFamilies,
   fontSizes,
   lineHeights,
   letterSpacings,
   colors,
+  breakpoints,
+  gutter,
 };
