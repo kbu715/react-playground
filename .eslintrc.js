@@ -28,6 +28,7 @@ module.exports = {
     'react/jsx-uses-react': 'off', // turned off errors from eslint complaining if react is not imported in a file
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off', // turned off errors when the return type is not explicitly specified (type inference is possible : 타입추론가능)
+    '@typescript-eslint/no-empty-function': ['off'],
     'prettier/prettier': [
       'error',
       {

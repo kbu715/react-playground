@@ -7,6 +7,7 @@ import NotFound from './components/Router/NotFound';
 import Profiles from './components/Router/Profiles';
 import Profile from './components/Router/Profile';
 import News from './components/News';
+import Color from './components/Color';
 
 const StyledNav = styled.nav`
   ul {
@@ -43,6 +44,9 @@ const RoutesComponent: React.FC = () => {
             <Link to="/profiles">Profiles</Link>
           </li>
           <li>
+            <Link to="/colors">Colors</Link>
+          </li>
+          <li>
             <Link to="/news/">News</Link>
           </li>
         </ul>
@@ -57,6 +61,7 @@ const RoutesComponent: React.FC = () => {
         <Route path="/profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
+        <Route path="/colors" element={<Color />} />
         <Route path="/news" element={<News />}>
           <Route path=":category" element={<News />} />
         </Route>
