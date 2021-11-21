@@ -4,6 +4,7 @@
 
 - [x] React 17
 - [x] React Router 6
+- [x] Context API
 - [x] Styled components
 - [x] TypeScript
 - [x] Babel
@@ -16,7 +17,7 @@
 ### 📦 컴포넌트 구성
 
 - Basics
-  - [ ] Button
+  - [x] Button
   - [ ] Input
   - [ ] Icon
   - ...
