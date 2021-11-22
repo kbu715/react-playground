@@ -8,6 +8,8 @@ import Profiles from './components/Router/Profiles';
 import Profile from './components/Router/Profile';
 import News from './components/News';
 import Color from './components/Color';
+import LoginPage from './pages/LoginPage';
+import Todo from './components/Todo';
 
 const StyledNav = styled.nav`
   ul {
@@ -44,10 +46,16 @@ const RoutesComponent: React.FC = () => {
             <Link to="/profiles">Profiles</Link>
           </li>
           <li>
+            <Link to="/todos">Todos</Link>
+          </li>
+          <li>
             <Link to="/colors">Colors</Link>
           </li>
           <li>
             <Link to="/news/">News</Link>
+          </li>
+          <li>
+            <Link to="/blog">Blog</Link>
           </li>
         </ul>
       </StyledNav>
@@ -61,10 +69,12 @@ const RoutesComponent: React.FC = () => {
         <Route path="/profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
+        <Route path="/todos" element={<Todo />} />
         <Route path="/colors" element={<Color />} />
         <Route path="/news" element={<News />}>
           <Route path=":category" element={<News />} />
         </Route>
+        <Route path="/blog" element={<LoginPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
