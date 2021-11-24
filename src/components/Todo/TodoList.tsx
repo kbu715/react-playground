@@ -1,14 +1,13 @@
 import React, { useCallback } from 'react';
+import { TodosState } from '../../modules/todos';
 import { StyledList } from './styles';
 import TodoListItem from './TodoListItem';
 
-export type Todo = { id: number; text: string; checked: boolean };
-
-interface TodoListProps {
-  todos: Todo[];
+type TodoListProps = {
+  todos: TodosState;
   onRemove: (id: number) => void;
   onToggle: (id: number) => void;
-}
+};
 
 const TodoList: React.FC<TodoListProps> = ({ todos, onRemove, onToggle }) => {
   const rowRenderer = useCallback(

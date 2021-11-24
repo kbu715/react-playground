@@ -91,7 +91,7 @@ export const StyledItem = styled.div`
         margin-left: 0.5rem;
       }
 
-      &.checked {
+      &.done {
         svg {
           color: #22b8cf;
         }

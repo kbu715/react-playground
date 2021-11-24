@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { CSSProperties, useCallback } from 'react';
 import {
   MdCheckBoxOutlineBlank,
   MdCheckBox,
   MdRemoveCircleOutline,
 } from 'react-icons/md';
 import { StyledItem } from './styles';
-import { Todo } from './TodoList';
 import cn from 'classnames';
+import { Todo } from '../../modules/todos';
 
-interface TodoListItemProps {
+type TodoListItemProps = {
   todo: Todo;
   onRemove: (id: number) => void;
   onToggle: (id: number) => void;
-  style?: React.CSSProperties;
-}
+  style?: CSSProperties;
+};
 
 const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
@@ -21,20 +21,28 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
   onToggle,
   style,
 }) => {
-  const { id, text, checked } = todo;
+  const { text, done } = todo;
+
+  const handleToggle = useCallback(() => {
+    onToggle(todo.id);
+  }, [todo, onToggle]);
+
+  const handleRemove = useCallback(() => {
+    onRemove(todo.id);
+  }, [todo, onRemove]);
 
   return (
     <StyledItem className="TodoListItem-virtualized" style={style}>
       <li className="TodoListItem">
         <button
           type="button"
-          className={cn('checkbox', { checked })}
-          onClick={() => onToggle(id)}
+          className={cn('checkbox', { done })}
+          onClick={handleToggle}
         >
-          {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+          {done ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
           <div className="text">{text}</div>
         </button>
-        <button type="button" className="remove" onClick={() => onRemove(id)}>
+        <button type="button" className="remove" onClick={handleRemove}>
           <MdRemoveCircleOutline />
         </button>
       </li>

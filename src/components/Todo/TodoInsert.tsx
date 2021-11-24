@@ -1,24 +1,23 @@
-import { useCallback, useState } from 'react';
+import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { StyledInsert } from './styles';
 
-interface TodoInsertProps {
+type TodoInsertProps = {
   onInsert: (text: string) => void;
-}
+};
 
 const TodoInsert: React.FC<TodoInsertProps> = ({ onInsert }) => {
   const [value, setValue] = useState('');
 
-  const onChange = useCallback((e) => {
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   }, []);
 
   const onSubmit = useCallback(
-    (e) => {
+    (e: FormEvent) => {
+      e.preventDefault();
       onInsert(value);
       setValue('');
-
-      e.preventDefault();
     },
     [onInsert, value]
   );
