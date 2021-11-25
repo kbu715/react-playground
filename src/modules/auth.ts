@@ -1,19 +1,55 @@
 import { ActionType, createAction, createReducer } from 'typesafe-actions';
+import { FormType } from '../components/Blog/auth/AuthForm';
+// type FormType = 'login' | 'register';
 
-const TEST_ACTION = 'auth/TEST_ACTION';
+const CHANGE_FIELD = 'auth/CHANGE_FIELD';
+const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
-export const testAction = createAction(TEST_ACTION)();
+type AuthState = {
+  register: {
+    email: string;
+    password: string;
+    passwordConfirm: string;
+  };
+  login: {
+    email: string;
+    password: string;
+  };
+};
 
-const actions = { testAction };
+export const changeField =
+  createAction(CHANGE_FIELD)<{ form: FormType; key: string; value: string }>();
 
-type TestAction = ActionType<typeof actions>;
+export const initializeForm = createAction(INITIALIZE_FORM)<FormType>(); // register or login
 
-type TestState = Record<string, never>; // meaning "empty object"
+const initialState: AuthState = {
+  register: {
+    email: '',
+    password: '',
+    passwordConfirm: '',
+  },
+  login: {
+    email: '',
+    password: '',
+  },
+};
 
-const initialState = {};
+const actions = { changeField, initializeForm };
 
-const authReducer = createReducer<TestState, TestAction>(initialState, {
-  [TEST_ACTION]: (state) => state,
+type AuthAction = ActionType<typeof actions>;
+
+const authReducer = createReducer<AuthState, AuthAction>(initialState, {
+  [CHANGE_FIELD]: (state, { payload: { form, key, value } }) => ({
+    ...state,
+    [form]: {
+      ...state[form],
+      [key]: value,
+    },
+  }),
+  [INITIALIZE_FORM]: (state, { payload: form }) => ({
+    ...state,
+    [form]: initialState[form], // reset
+  }),
 });
 
 export default authReducer;
