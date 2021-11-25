@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/common/Button';
+import Button from '../components/Blog/common/Button';
 
 const PostListPage: React.FC = () => {
   return (

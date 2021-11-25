@@ -37,3 +37,11 @@ export default ${TM_FILENAME_BASE};
 5. vscode에서 `Preference` -> `User snippets` -> `javascriptreact.json` or `typescriptreact.json`에 복사 붙여넣기
 
 `More Info`: [https://code.visualstudio.com/docs/editor/userdefinedsnippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
+
+## 크롬 자동완성 끄기 (보안문제 해결법)
+
+항상 새로운 비밀번호를 입력받는다는 꼼수를 이용
+
+```html
+<input type="password" name="password" autocomplete="new-password" />
+```
