@@ -7,12 +7,12 @@ const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
 type AuthState = {
   register: {
-    email: string;
+    username: string;
     password: string;
     passwordConfirm: string;
   };
   login: {
-    email: string;
+    username: string;
     password: string;
   };
 };
@@ -24,12 +24,12 @@ export const initializeForm = createAction(INITIALIZE_FORM)<FormType>(); // regi
 
 const initialState: AuthState = {
   register: {
-    email: '',
+    username: '',
     password: '',
     passwordConfirm: '',
   },
   login: {
-    email: '',
+    username: '',
     password: '',
   },
 };

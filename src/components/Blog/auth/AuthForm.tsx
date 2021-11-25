@@ -13,7 +13,7 @@ export type FormType = 'login' | 'register';
 type AuthFormProps = {
   type: FormType;
   form: {
-    email: string;
+    username: string;
     password: string;
     passwordConfirm?: string;
   };
@@ -33,11 +33,11 @@ const AuthForm: React.FC<AuthFormProps> = ({
       <h3>{`이메일로 ${text}`}</h3>
       <form onSubmit={onSubmit}>
         <StyledInput
-          autoComplete="email"
-          name="email"
+          autoComplete="username"
+          name="username"
           placeholder="이메일"
           onChange={onChange}
-          value={form.email}
+          value={form.username}
         />
         <StyledInput
           type="password"
