@@ -10,11 +10,18 @@ export const GlobalStyle = createGlobalStyle`
   }
   html {
     font-family: ${({ theme }) => theme.fontFamilies.main};
+    height: 100%;
   }
   body {
     font-family: ${({ theme }) => theme.fontFamilies.main};
     background-color: #e9ecef;
+    min-height: 100%;
   }
+
+  #root {
+    min-height: 100%;
+  }
+
   h1 {
     margin: 0;
   }

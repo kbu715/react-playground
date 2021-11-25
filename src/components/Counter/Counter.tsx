@@ -16,7 +16,11 @@ const Counter = ({
 }: CounterProps) => {
   return (
     <div>
-      <h1>{count}</h1>
+      <h1
+        style={{ textAlign: 'center', fontSize: '50px', marginBottom: '15px' }}
+      >
+        {count}
+      </h1>
       <Button variant="primary" onClick={onIncrease}>
         +1
       </Button>
