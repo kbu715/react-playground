@@ -45,3 +45,20 @@ export default ${TM_FILENAME_BASE};
 ```html
 <input type="password" name="password" autocomplete="new-password" />
 ```
+
+## Quicktype
+
+JSON 을 바로 타입스크립트 인터페이스로 변환 할 수 있습니다.
+
+[https://app.quicktype.io/?l=ts](https://app.quicktype.io/?l=ts)
+
+## `ThunkAction`
+
+`ThunkAction` 의 Generics 로는 다음 값들을 순서대로 넣어주어야 합니다.
+
+`<TReturnType, TState, TExtraThunkArg, TBasicAction>`
+
+1. **TReturnType**: thunk 함수에서 반환하는 값의 타입을 설정합니다.
+2. **TState**: 스토어의 상태에 대한 타입을 설정합니다. (RootState)
+3. **TExtraThunkArg**: redux-thunk 미들웨어의 Extra Argument의 타입을 설정합니다.
+4. **TBasicAction**: dispatch 할 수 있는 액션들의 타입을 설정합니다.
