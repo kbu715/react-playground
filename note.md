@@ -62,3 +62,14 @@ JSON 을 바로 타입스크립트 인터페이스로 변환 할 수 있습니�
 2. **TState**: 스토어의 상태에 대한 타입을 설정합니다. (RootState)
 3. **TExtraThunkArg**: redux-thunk 미들웨어의 Extra Argument의 타입을 설정합니다.
 4. **TBasicAction**: dispatch 할 수 있는 액션들의 타입을 설정합니다.
+
+## Parameters Test
+
+```typescript
+// Parameters test
+
+function sum(a: number, b: number) {
+  return a + b;
+}
+type P = Parameters<typeof sum>; // type P = [a: number, b: number]
+```
