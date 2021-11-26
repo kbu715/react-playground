@@ -15,6 +15,7 @@ import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
 import PostPage from './pages/PostPage';
 import CounterIndex from './components/Counter';
+import GithubProfileLoader from './containers/github/GithubProfileLoader';
 
 const StyledNav = styled.nav`
   ul {
@@ -60,6 +61,9 @@ const RoutesComponent: React.FC = () => {
             <Link to="/news/">News</Link>
           </li>
           <li>
+            <Link to="/github">Github Profile</Link>
+          </li>
+          <li>
             <Link to="/counter">Counter</Link>
           </li>
           <li>
@@ -91,6 +95,7 @@ const RoutesComponent: React.FC = () => {
         <Route path="/counter" element={<CounterIndex />} />
         <Route path="/news" element={<News />} />
         <Route path="/news/:category" element={<News />} />
+        <Route path="/github" element={<GithubProfileLoader />} />
         <Route path="/blog" element={<PostListPage />} />
         <Route path="/blog/login" element={<LoginPage />} />
         <Route path="/blog/register" element={<RegisterPage />} />
