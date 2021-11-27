@@ -84,23 +84,23 @@ const RoutesComponent: React.FC = () => {
       <hr />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/info" element={<About />} />
-        <Route path="/profiles" element={<Profiles />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="info" element={<About />} />
+        <Route path="profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
-        <Route path="/todos" element={<Todo />} />
-        <Route path="/colors" element={<Color />} />
-        <Route path="/counter" element={<CounterIndex />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:category" element={<News />} />
-        <Route path="/github" element={<GithubProfileLoader />} />
-        <Route path="/blog" element={<PostListPage />} />
-        <Route path="/blog/login" element={<LoginPage />} />
-        <Route path="/blog/register" element={<RegisterPage />} />
-        <Route path="/blog/write" element={<WritePage />} />
-        <Route path="/blog/@:username/:postId" element={<PostPage />} />
+        <Route path="todos" element={<Todo />} />
+        <Route path="colors" element={<Color />} />
+        <Route path="counter" element={<CounterIndex />} />
+        <Route path="news" element={<News />} />
+        <Route path="news/:category" element={<News />} />
+        <Route path="github" element={<GithubProfileLoader />} />
+        <Route path="blog" element={<PostListPage />} />
+        <Route path="blog/login" element={<LoginPage />} />
+        <Route path="blog/register" element={<RegisterPage />} />
+        <Route path="blog/write" element={<WritePage />} />
+        <Route path="blog/@:username/:postId" element={<PostPage />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
