@@ -51,7 +51,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
           <StyledInput
             type="password"
             autoComplete="new-password"
-            name="password-confirm"
+            name="passwordConfirm"
             placeholder="비밀번호 확인"
             onChange={onChange}
             value={form.passwordConfirm}

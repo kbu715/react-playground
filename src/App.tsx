@@ -5,19 +5,19 @@ import Routes from './Routes';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-// import Thunk from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga';
+import Thunk from 'redux-thunk';
+// import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer, { rootSaga } from './modules';
+import rootReducer from './modules';
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  composeWithDevTools(applyMiddleware(Thunk))
 );
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 export const App = () => {
   return (
