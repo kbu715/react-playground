@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "short_name": "React-Playground",
+  "name": "React-Playground",
+  "dir": "ltr",
+  "orientation": "any",
+  "description": "description",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "developer": {
+    "name": "Paul Kang",
+    "url": "https://github.com/kbu715"
+  }
+}
