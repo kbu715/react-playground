@@ -1,0 +1,68 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "ignorePatterns": ["*.js", "node_modules"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // let the react version be automatically detected
+    }
+  },
+
+  "rules": {
+    "no-unused-vars": [
+      "off",
+      {
+        "varsIgnorePattern": "_"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": ["off"],
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/restrict-template-expressions": "off"
+  }
+}
+
+// 'no-unused-vars': 'off', // turned off rule about disallowing unused variables
+// '@typescript-eslint/no-unused-vars': ['error'],
+// '@typescript-eslint/no-var-requires': 'off', // turned off errors for required statements
+// 'react/prop-types': 'off', // we are using typescript!
+// 'react/jsx-uses-react': 'off', // turned off errors from eslint complaining if react is not imported in a file
+// 'react/react-in-jsx-scope': 'off',
+// '@typescript-eslint/explicit-module-boundary-types': 'off', // turned off errors when the return type is not explicitly specified (type inference is possible : 타입추론가능)
+// '@typescript-eslint/no-empty-function': ['off'],
