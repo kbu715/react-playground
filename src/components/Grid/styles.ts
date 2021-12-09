@@ -36,7 +36,6 @@ export const Column = styled.div<ColumnProps>`
 export const Row = styled.div<RowProps>`
   display: flex;
   flex-wrap: wrap;
-  ${({ justifyContent }) =>
-    justifyContent && `justify-content: ${justifyContent}`}
+  ${({ justifyContent }) => justifyContent && `justify-content: ${justifyContent}`}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`}
 `;

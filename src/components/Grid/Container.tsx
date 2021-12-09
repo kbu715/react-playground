@@ -6,9 +6,6 @@ interface ContainerProps {
   className?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({
-  children,
-  className,
-}) => {
+export const Container: React.FC<ContainerProps> = ({ children, className }) => {
   return <StyledContainer className={className}>{children}</StyledContainer>;
 };

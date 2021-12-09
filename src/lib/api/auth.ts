@@ -6,12 +6,10 @@ export type AuthType = {
 };
 
 // login
-export const login = ({ username, password }: AuthType) =>
-  client.post('/api/auth/login', { username, password });
+export const login = ({ username, password }: AuthType) => client.post('/api/auth/login', { username, password });
 
 // register
-export const register = ({ username, password }: AuthType) =>
-  client.post('/api/auth/register', { username, password });
+export const register = ({ username, password }: AuthType) => client.post('/api/auth/register', { username, password });
 
 // login status check
 export const check = () => client.get('/api/auth/check');

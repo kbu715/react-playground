@@ -16,34 +16,22 @@ const Home: React.FC = () => {
       <Container>
         <Row>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
           <Column sm={1}>
-            <div style={{ border: '1px solid blue', height: '100px' }}>
-              Column
-            </div>
+            <div style={{ border: '1px solid blue', height: '100px' }}>Column</div>
           </Column>
         </Row>
       </Container>

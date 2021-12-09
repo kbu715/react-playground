@@ -59,14 +59,7 @@ const RegisterForm: React.FC = () => {
     }
   }, [auth, authError]);
 
-  return (
-    <AuthForm
-      type="register"
-      form={form}
-      onChange={onChange}
-      onSubmit={onSubmit}
-    />
-  );
+  return <AuthForm type="register" form={form} onChange={onChange} onSubmit={onSubmit} />;
 };
 
 export default RegisterForm;

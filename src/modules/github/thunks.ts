@@ -40,7 +40,4 @@ import createAsyncThunk from '../../lib/createAsyncThunk';
 가끔씩은 까다로운 로직을 가지고 있는 thunk 함수의 경우엔 당연히 직접 작성해야 될 수도 있습니다. 
 하지만 이렇게 단순히 데이터만 바로 조회하는 형태의 코드(GET)라면 createAsyncThunk 함수를 사용하여 구현하면 편할 것 입니다.
 */
-export const getUserProfileThunk = createAsyncThunk(
-  getUserProfileAsync,
-  getUserProfile
-);
+export const getUserProfileThunk = createAsyncThunk(getUserProfileAsync, getUserProfile);

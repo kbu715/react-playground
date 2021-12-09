@@ -36,14 +36,7 @@ const LoginForm: React.FC = () => {
     dispatch(initializeForm('login'));
   }, [dispatch]);
 
-  return (
-    <AuthForm
-      type="login"
-      form={form}
-      onChange={onChange}
-      onSubmit={onSubmit}
-    />
-  );
+  return <AuthForm type="login" form={form} onChange={onChange} onSubmit={onSubmit} />;
 };
 
 export default LoginForm;

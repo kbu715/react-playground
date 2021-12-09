@@ -12,10 +12,7 @@ import rootReducer from './modules';
 
 // const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(Thunk))
-);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(Thunk)));
 
 // sagaMiddleware.run(rootSaga);
 

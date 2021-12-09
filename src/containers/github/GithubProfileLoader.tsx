@@ -6,9 +6,7 @@ import GithubProfileInfo from '../../components/Github/ProfileInfo';
 import { getUserProfileAsync } from '../../modules/github';
 
 function GithubProfileLoader() {
-  const { data, loading, error } = useSelector(
-    (state: RootState) => state.github.userProfile
-  );
+  const { data, loading, error } = useSelector((state: RootState) => state.github.userProfile);
   const dispatch = useDispatch();
 
   const onSubmitUsername = (username: string) => {
@@ -20,14 +18,7 @@ function GithubProfileLoader() {
       <GithubUsernameForm onSubmitUsername={onSubmitUsername} />
       {loading && <p style={{ textAlign: 'center' }}>로딩중..</p>}
       {error && <p style={{ textAlign: 'center', color: 'red' }}>에러 발생!</p>}
-      {data && (
-        <GithubProfileInfo
-          bio={data.bio}
-          blog={data.blog}
-          name={data.name}
-          thumbnail={data.avatar_url}
-        />
-      )}
+      {data && <GithubProfileInfo bio={data.bio} blog={data.blog} name={data.name} thumbnail={data.avatar_url} />}
     </>
   );
 }

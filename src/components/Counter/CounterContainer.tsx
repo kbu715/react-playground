@@ -32,12 +32,7 @@ const CounterContainer = () => {
 
   return (
     <StyledContainer>
-      <Counter
-        count={count}
-        onIncrease={onIncrease}
-        onDecrease={onDecrease}
-        onIncreaseBy={onIncreaseBy}
-      />
+      <Counter count={count} onIncrease={onIncrease} onDecrease={onDecrease} onIncreaseBy={onIncreaseBy} />
     </StyledContainer>
   );
 };

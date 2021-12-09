@@ -17,9 +17,7 @@ const About: React.FC = () => {
       {showDetail && <p>detail : true</p>}
       <button onClick={() => navigation('/')}>홈으로</button>
       <br />
-      <button onClick={() => navigation('/', { replace: true })}>
-        홈으로(replace)
-      </button>
+      <button onClick={() => navigation('/', { replace: true })}>홈으로(replace)</button>
       <br />
       <button onClick={() => navigation(-1)}>뒤로</button>
       <br />

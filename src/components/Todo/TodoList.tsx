@@ -9,19 +9,17 @@ type TodoListProps = {
   onToggle: (id: number) => void;
 };
 
+type RowRendererProps = {
+  index: number;
+  key: string;
+  style: React.CSSProperties;
+};
+
 const TodoList: React.FC<TodoListProps> = ({ todos, onRemove, onToggle }) => {
   const rowRenderer = useCallback(
-    ({ index, key, style }) => {
+    ({ index, key, style }: RowRendererProps) => {
       const todo = todos[index];
-      return (
-        <TodoListItem
-          todo={todo}
-          key={key}
-          onRemove={onRemove}
-          onToggle={onToggle}
-          style={style}
-        />
-      );
+      return <TodoListItem todo={todo} key={key} onRemove={onRemove} onToggle={onToggle} style={style} />;
     },
     [todos, onRemove, onToggle]
   );

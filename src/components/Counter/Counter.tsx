@@ -8,19 +8,10 @@ type CounterProps = {
   onIncreaseBy: (diff: number) => void;
 };
 
-const Counter = ({
-  count,
-  onIncrease,
-  onDecrease,
-  onIncreaseBy,
-}: CounterProps) => {
+const Counter = ({ count, onIncrease, onDecrease, onIncreaseBy }: CounterProps) => {
   return (
     <div>
-      <h1
-        style={{ textAlign: 'center', fontSize: '50px', marginBottom: '15px' }}
-      >
-        {count}
-      </h1>
+      <h1 style={{ textAlign: 'center', fontSize: '50px', marginBottom: '15px' }}>{count}</h1>
       <Button variant="primary" onClick={onIncrease}>
         +1
       </Button>

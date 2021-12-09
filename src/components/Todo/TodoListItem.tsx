@@ -1,9 +1,5 @@
 import React, { CSSProperties, useCallback } from 'react';
-import {
-  MdCheckBoxOutlineBlank,
-  MdCheckBox,
-  MdRemoveCircleOutline,
-} from 'react-icons/md';
+import { MdCheckBoxOutlineBlank, MdCheckBox, MdRemoveCircleOutline } from 'react-icons/md';
 import { StyledItem } from './styles';
 import cn from 'classnames';
 import { Todo } from '../../modules/todos';
@@ -15,12 +11,7 @@ type TodoListItemProps = {
   style?: CSSProperties;
 };
 
-const TodoListItem: React.FC<TodoListItemProps> = ({
-  todo,
-  onRemove,
-  onToggle,
-  style,
-}) => {
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo, onRemove, onToggle, style }) => {
   const { text, done } = todo;
 
   const handleToggle = useCallback(() => {
@@ -34,11 +25,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
   return (
     <StyledItem className="TodoListItem-virtualized" style={style}>
       <li className="TodoListItem">
-        <button
-          type="button"
-          className={cn('checkbox', { done })}
-          onClick={handleToggle}
-        >
+        <button type="button" className={cn('checkbox', { done })} onClick={handleToggle}>
           {done ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
           <div className="text">{text}</div>
         </button>
@@ -51,9 +38,7 @@ const TodoListItem: React.FC<TodoListItemProps> = ({
 };
 
 // React.memo 두번째 인수 - props 동등 비교 커스터마이징
-const todoPropsAreEqual = (
-  prevProps: TodoListItemProps,
-  nextProps: TodoListItemProps
-) => prevProps.todo === nextProps.todo;
+const todoPropsAreEqual = (prevProps: TodoListItemProps, nextProps: TodoListItemProps) =>
+  prevProps.todo === nextProps.todo;
 
 export default React.memo(TodoListItem, todoPropsAreEqual);

@@ -21,12 +21,7 @@ type AuthFormProps = {
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 };
 
-const AuthForm: React.FC<AuthFormProps> = ({
-  type,
-  form,
-  onChange,
-  onSubmit,
-}) => {
+const AuthForm: React.FC<AuthFormProps> = ({ type, form, onChange, onSubmit }) => {
   const text = textMap[type];
   return (
     <StyledAuthForm>
@@ -67,11 +62,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
         </Button>
       </form>
       <StyledFooter>
-        {type === 'login' ? (
-          <Link to="/blog/register">회원가입</Link>
-        ) : (
-          <Link to="/blog/login">로그인</Link>
-        )}
+        {type === 'login' ? <Link to="/blog/register">회원가입</Link> : <Link to="/blog/login">로그인</Link>}
       </StyledFooter>
     </StyledAuthForm>
   );

@@ -6,15 +6,7 @@ import { Column, ColumnProps } from './Column';
 
 type GridProps = RowProps & ColumnProps;
 
-export const Grid: React.FC<GridProps> = ({
-  sm,
-  md,
-  lg = md,
-  alignItems,
-  justifyContent,
-  children,
-  className,
-}) => {
+export const Grid: React.FC<GridProps> = ({ sm, md, lg = md, alignItems, justifyContent, children, className }) => {
   return (
     <Container className={className}>
       <Row alignItems={alignItems} justifyContent={justifyContent}>

@@ -4,10 +4,17 @@ import { NewsListBlock } from './styles';
 import axios from 'axios';
 
 export interface ArticleType {
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
+  author: string | null;
+  content: string | null;
+  title: string | null;
+  publishedAt: string | null;
+  description: string | null;
+  url: string | null;
+  urlToImage: string | null;
+  source: {
+    id: string | null;
+    name: string | null;
+  };
 }
 
 interface NewsListProps {
@@ -24,16 +31,20 @@ const NewsList: React.FC<NewsListProps> = ({ category }) => {
 
       try {
         const query = category === 'all' ? '' : `&category=${category}`;
-        const response = await axios.get(
+        const response = await axios.get<{ articles: ArticleType[] }>(
           `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=${process.env.NEWS_API_KEY}`
         );
-        setArticles(response.data.articles);
+        console.log(response);
+        if (response.data) {
+          setArticles(response.data.articles);
+        }
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     };
-    fetchNewsData();
+    fetchNewsData().catch((error) => console.log(error));
   }, [category]);
 
   if (loading) {

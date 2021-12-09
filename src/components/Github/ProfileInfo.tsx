@@ -8,12 +8,7 @@ type GithubProfileInfoProps = {
   blog: string;
 };
 
-const GithubProfileInfo = ({
-  name,
-  thumbnail,
-  bio,
-  blog,
-}: GithubProfileInfoProps) => {
+const GithubProfileInfo = ({ name, thumbnail, bio, blog }: GithubProfileInfoProps) => {
   return (
     <StyledWrapper className="GithubProfileInfo">
       <div className="profile-head">

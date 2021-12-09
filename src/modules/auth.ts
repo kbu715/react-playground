@@ -1,10 +1,5 @@
 import { AxiosError } from 'axios';
-import {
-  ActionType,
-  createAction,
-  createAsyncAction,
-  createReducer,
-} from 'typesafe-actions';
+import { ActionType, createAction, createAsyncAction, createReducer } from 'typesafe-actions';
 import { FormType } from '../components/Blog/auth/AuthForm';
 import { AuthType, login, register } from '../lib/api/auth';
 import createAsyncThunk from '../lib/createAsyncThunk';
@@ -35,23 +30,18 @@ type AuthState = {
   authError: AxiosError | null;
 };
 
-export const changeField =
-  createAction(CHANGE_FIELD)<{ form: FormType; key: string; value: string }>();
+export const changeField = createAction(CHANGE_FIELD)<{ form: FormType; key: string; value: string }>();
 
 export const initializeForm = createAction(INITIALIZE_FORM)<FormType>(); // register or login
 
 // thunk 생성
-export const registerAsync = createAsyncAction(
-  REGISTER,
-  REGISTER_SUCCESS,
-  REGISTER_FAILURE
-)<AuthType, AuthType, AxiosError>();
+export const registerAsync = createAsyncAction(REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE)<
+  AuthType,
+  AuthType,
+  AxiosError
+>();
 
-export const loginAsync = createAsyncAction(
-  LOGIN,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE
-)<AuthType, AuthType, AxiosError>();
+export const loginAsync = createAsyncAction(LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE)<AuthType, AuthType, AxiosError>();
 
 export const registerThunk = createAsyncThunk(registerAsync, register);
 export const loginThunk = createAsyncThunk(loginAsync, login);

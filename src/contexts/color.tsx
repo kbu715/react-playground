@@ -32,9 +32,7 @@ const ColorProvider = ({ children }: ColorProviderProps) => {
     actions: { setColor, setSubColor },
   };
 
-  return (
-    <ColorContext.Provider value={value}>{children}</ColorContext.Provider>
-  );
+  return <ColorContext.Provider value={value}>{children}</ColorContext.Provider>;
 };
 
 // const ColorConsumer = ColorContext.Consumer

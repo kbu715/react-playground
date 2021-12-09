@@ -16,11 +16,8 @@ const todosReducer = createReducer<TodosState, TodosAction>(initialState, {
   ],
   // 바구조화 할당을 활용하여 payload 값의 이름을 바꿀 수 있음
   [TOGGLE_TODO]: (state, { payload: id }) =>
-    state.map((todo) =>
-      todo.id === id ? { ...todo, done: !todo.done } : todo
-    ),
-  [REMOVE_TODO]: (state, { payload: id }) =>
-    state.filter((todo) => todo.id !== id),
+    state.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)),
+  [REMOVE_TODO]: (state, { payload: id }) => state.filter((todo) => todo.id !== id),
 });
 
 export default todosReducer;

@@ -19,11 +19,7 @@ const GithubUsernameForm = ({ onSubmitUsername }: GithubUsernameFormProps) => {
 
   return (
     <StyledForm className="GithubUsernameForm" onSubmit={onSubmit}>
-      <input
-        onChange={onChange}
-        value={input}
-        placeholder="Github 계정명을 입력하세요."
-      />
+      <input onChange={onChange} value={input} placeholder="Github 계정명을 입력하세요." />
       <button type="submit">조회</button>
     </StyledForm>
   );
