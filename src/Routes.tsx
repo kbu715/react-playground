@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Router/Home';
-import About from './components/Router/About';
+// import About from './components/Router/About';
 import NotFound from './components/Router/NotFound';
 import Profiles from './components/Router/Profiles';
 import Profile from './components/Router/Profile';
@@ -16,6 +16,8 @@ import WritePage from './pages/WritePage';
 import PostPage from './pages/PostPage';
 import CounterIndex from './components/Counter';
 import GithubProfileLoader from './containers/github/GithubProfileLoader';
+
+const AboutPage = lazy(() => import('./components/Router/About'));
 
 const StyledNav = styled.nav`
   ul {
@@ -39,7 +41,7 @@ const StyledNav = styled.nav`
 
 const RoutesComponent: React.FC = () => {
   return (
-    <>
+    <Suspense fallback={''}>
       <StyledNav>
         <ul>
           <li>
@@ -85,8 +87,7 @@ const RoutesComponent: React.FC = () => {
 
       <Routes>
         <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="info" element={<About />} />
+        <Route path="about" element={<AboutPage />} />
         <Route path="profiles" element={<Profiles />}>
           <Route path=":username" element={<Profile />} />
         </Route>
@@ -104,7 +105,7 @@ const RoutesComponent: React.FC = () => {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </Suspense>
   );
 };
 
